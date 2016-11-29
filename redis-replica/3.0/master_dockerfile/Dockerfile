@@ -5,8 +5,6 @@ MAINTAINER He Jun <junh@alauda.io>
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV REDIS_TRIB_PARA='10.171.88.35 7000'
-
 RUN locale-gen en_US.UTF-8
 ENV LANG       en_US.UTF-8
 ENV LC_ALL     en_US.UTF-8
@@ -30,7 +28,7 @@ RUN apt-get install -y rubygems
 # Install ruby dependencies so we can bootstrap the cluster via redis-trib.rb
 RUN gem install redis
 
-# checkout the 3.0.6 tag (Will change to 3.2 tag when it is released as stable)
+# checkout the 3.0.7 tag (Will change to 3.2 tag when it is released as stable)
 RUN git clone -b 3.0.7 https://github.com/antirez/redis.git
 
 # Build redis from source
